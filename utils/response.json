@@ -1,0 +1,71 @@
+[
+    {
+      "code": 200,
+      "meaning": "OK"
+    },
+    {
+      "code": 201,
+      "meaning": "Created"
+    },
+    {
+      "code": 204,
+      "meaning": "No Content"
+    },
+    {
+      "code": 400,
+      "meaning": "Bad Request"
+    },
+    {
+      "code": 401,
+      "meaning": "Unauthorized"
+    },
+    {
+      "code": 403,
+      "meaning": "Forbidden"
+    },
+    {
+      "code": 404,
+      "meaning": "Not Found"
+    },
+    {
+      "code": 409,
+      "meaning": "Conflict"
+    },
+    {
+      "code": 500,
+      "meaning": "Internal Server Error"
+    },
+    {
+      "code": 502,
+      "meaning": "Bad Gateway"
+    },
+    {
+      "code": 503,
+      "meaning": "Service Unavailable"
+    },
+    {
+      "code": 504,
+      "meaning": "Gateway Timeout"
+    },
+    {
+      "code": 301,
+      "meaning": "Moved Permanently"
+    },
+    {
+      "code": 302,
+      "meaning": "Found (Moved Temporarily)"
+    },
+    {
+      "code": 304,
+      "meaning": "Not Modified"
+    },
+    {
+      "code": 405,
+      "meaning": "Method Not Allowed"
+    },
+    {
+      "code": 408,
+      "meaning": "Request Timeout"
+    }
+  ]
+  

@@ -21,6 +21,16 @@ router.post('/submit', upload.single('file'), async (req, res) => {
     const db = req.app.locals.db;
     const collection = db.collection('submissions');
 
+    const createdAt = new Date();
+    const formattedCreatedAt = createdAt.toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }); 
+
     const formData = {
       firstName: req.body.firstName,
       middleName: req.body.middleName,
@@ -40,7 +50,10 @@ router.post('/submit', upload.single('file'), async (req, res) => {
       filePath: req.file.path,
       fileName: req.file.originalname,
       fileId: new ObjectId(),
+      createdAt: formattedCreatedAt,
     };
+
+    
 
     const result = await collection.insertOne(formData);
     res.status(201).json({ message: 'Form submitted successfully', data: result });

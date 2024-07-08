@@ -19,11 +19,10 @@ app.use(cookieParser());
 app.use(wrapResponse);
 
 app.use("/login", require("./routes/login"));
-app.use("/newloan", require("./routes/newloan"));
 app.use("/newuser", require("./routes/newuser"));
 app.use("/users", require("./routes/users"));
-app.use("/loans", require("./routes/loans"));
 app.use("/upload", require("./routes/upload"));
+app.use("/applications", require("./routes/applications"));
 
 
 const url = "mongodb://127.0.0.1:27017/eswadb";

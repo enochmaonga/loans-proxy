@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 const mongoose = require('mongoose');
 const bcryptjs = require('bcryptjs');
+require('dotenv').config(); // Load environment variables
 
 // Define a Mongoose model for your user collection
 const User = mongoose.model('User', {
@@ -31,7 +32,7 @@ router.post('/', async (req, res) => {
 
     if (passwordMatch) {
       // Generate a JWT token and send it back to the client
-      const token = jwt.sign({ username: user.username, userType: user.userType }, process.env.ACCESS_TOKEN_SECRET, {
+      const token = jwt.sign({ username: user.username, userType: user.userType }, process.env.JWT_SECRET, {
         expiresIn: '1h',
       });
 

@@ -9,6 +9,15 @@ const { MongoClient } = require("mongodb");
 const bodyParser = require('body-parser');
 const path = require('path');
 
+
+// CORS configuration
+app.use(cors({
+  origin: 'https://loan-lovat.vercel.app/',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
 // Assuming your files are stored in a directory named 'uploads'
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -31,7 +40,7 @@ app.use("/upload", require("./routes/upload"));
 app.use("/applications", require("./routes/applications"));
 
 
-const url = "mongodb://127.0.0.1:27017/eswadb";
+const url = "mongodb+srv://maongaenoch:P6QpXaBRe8zHA5gI@cluster0.gqnfqjq.mongodb.net/eswadb";
 
 const client = new MongoClient(url);
 

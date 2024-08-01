@@ -11,7 +11,7 @@ const path = require('path');
 
 
 const corsOptions = {
-  origin: 'https://loan-lovat.vercel.app', // No trailing slash
+  origin: '*', // No trailing slash
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -55,7 +55,7 @@ async function connectToMongoDB() {
     app.locals.db = client.db();
 
     // Start your Express server after connecting to MongoDB
-    app.listen(port, '0.0.0.0',() => {
+    app.listen(port, '0.0.0.0', () => {
       console.log(`ESWA listening at http://0.0.0.0:${port}`);
     });
   } catch (error) {

@@ -2,7 +2,7 @@ const { MongoClient } = require('mongodb');
 const bcryptjs = require('bcryptjs');
 const nodemailer = require('nodemailer');
 
-const uri = 'mongodb://127.0.0.1:27017/eswadb';
+const uri = "mongodb+srv://maongaenoch:P6QpXaBRe8zHA5gI@cluster0.gqnfqjq.mongodb.net/eswadb";
 
 async function initDB() {
   const client = new MongoClient(uri);

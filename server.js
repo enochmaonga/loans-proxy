@@ -55,8 +55,8 @@ async function connectToMongoDB() {
     app.locals.db = client.db();
 
     // Start your Express server after connecting to MongoDB
-    app.listen(port, () => {
-      console.log(`ESWA listening at http://localhost:${port}`);
+    app.listen(port, '0.0.0.0',() => {
+      console.log(`ESWA listening at http://0.0.0.0:${port}`);
     });
   } catch (error) {
     console.error("Error connecting to MongoDB", error);

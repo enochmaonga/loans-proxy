@@ -12,7 +12,7 @@ const User = mongoose.model('User', {
   userType: String,
 });
 
-mongoose.connect('mongodb://127.0.0.1:27017/eswadb', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://maongaenoch:P6QpXaBRe8zHA5gI@cluster0.gqnfqjq.mongodb.net/eswadb', { useNewUrlParser: true, useUnifiedTopology: true });
 
 router.post('/', async (req, res) => {
   const { username, password } = req.body;

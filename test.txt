@@ -2,3 +2,6 @@ GET http://localhost:4001/users
 
 ##
 POST http://localhost:4001/newloan
+
+## POST http://localhost:4001/login
+

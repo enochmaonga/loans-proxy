@@ -11,7 +11,7 @@ const path = require('path');
 
 
 const corsOptions = {
-  origin: '*', // No trailing slash
+  origin: 'https://loan-lovat.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -40,6 +40,10 @@ app.use("/newuser", require("./routes/newuser"));
 app.use("/users", require("./routes/users"));
 app.use("/upload", require("./routes/upload"));
 app.use("/applications", require("./routes/applications"));
+
+app.get('/', (req, res) => {
+  res.send('Hello, Render! Your server is up and running.');
+});
 
 
 const url = "mongodb+srv://maongaenoch:P6QpXaBRe8zHA5gI@cluster0.gqnfqjq.mongodb.net/eswadb";

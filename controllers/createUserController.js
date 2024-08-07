@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 const bcryptjs = require('bcryptjs');
-const nodemailer = require('nodemailer');
+
 
 const uri = "mongodb+srv://maongaenoch:P6QpXaBRe8zHA5gI@cluster0.gqnfqjq.mongodb.net/eswadb";
 

@@ -10,15 +10,19 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 
-const corsOptions = {
+// const corsOptions = {
+//   origin: 'https://loan-lovat.vercel.app',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true
+// };
+
+app.use(cors({
   origin: 'https://loan-lovat.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
-};
-
-// CORS configuration
-app.use(cors(corsOptions));
+}));
 
 // Assuming your files are stored in a directory named 'uploads'
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

@@ -18,7 +18,10 @@ const path = require('path');
 // };
 
 app.use(cors({
-  origin: 'https://loan-lovat.vercel.app',
+  origin: 
+  'https://loan-lovat.vercel.app' 
+  // 'http://localhost:3000'
+  ,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -44,6 +47,7 @@ app.use("/newuser", require("./routes/newuser"));
 app.use("/users", require("./routes/users"));
 app.use("/upload", require("./routes/upload"));
 app.use("/applications", require("./routes/applications"));
+app.use("/download", require("./pages/api/download"));
 
 app.get('/', (req, res) => {
   res.send('Hello, Render! Your server is up and running.');

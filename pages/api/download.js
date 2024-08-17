@@ -1,7 +1,7 @@
-import path from 'path';
-import fs from 'fs';
+const path = require('path');
+const fs = require('fs');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const { filename } = req.query;
 
   const filePath = path.join(process.cwd(), 'uploads', filename);
@@ -15,4 +15,4 @@ export default async function handler(req, res) {
   } else {
     res.status(404).json({ message: 'File not found' });
   }
-}
+};

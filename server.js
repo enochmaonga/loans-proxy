@@ -9,7 +9,7 @@ const { MongoClient } = require("mongodb");
 const bodyParser = require('body-parser');
 const path = require('path');
 const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccountKey.json');
+const serviceAccount = require('./serviceAccount.json');
 
 
 // Load service account key file

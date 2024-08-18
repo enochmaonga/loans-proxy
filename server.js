@@ -13,12 +13,12 @@ const admin = require('firebase-admin');
 
 
 // Load service account key file
-// const serviceAccount = require('./serviceAccount.json');
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
 
 
 // Initialize Firebase Admin SDK with environment variables
 admin.initializeApp({
-  credential: admin.credential.cert(process.env.GOOGLE_APPLICATION_CREDENTIALS),
+  credential: admin.credential.cert(process.env.FIREBASE_SERVICE_ACCOUNT_KEY),
   databaseURL: process.env.FIREBASE_DATABASE_URL
 }, 'appName');
 

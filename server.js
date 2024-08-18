@@ -9,16 +9,16 @@ const { MongoClient } = require("mongodb");
 const bodyParser = require('body-parser');
 const path = require('path');
 const admin = require('firebase-admin');
-// const serviceAccount = require('./serviceAccount.json');
+const serviceAccount = require('./serviceAccount.json');
 
 
 // Load service account key file
-const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+// const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
 
 
 // Initialize Firebase Admin SDK with environment variables
 admin.initializeApp({
-  credential: admin.credential.cert(process.env.FIREBASE_SERVICE_ACCOUNT_KEY),
+  credential: admin.credential.cert(serviceAccount),
   databaseURL: process.env.FIREBASE_DATABASE_URL
 }, 'appName');
 

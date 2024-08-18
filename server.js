@@ -8,14 +8,19 @@ const cors = require("cors");
 const { MongoClient } = require("mongodb");
 const bodyParser = require('body-parser');
 const path = require('path');
+const admin = require('firebase-admin');
+const serviceAccount = require('./serviceAccountKey.json');
 
 
-// const corsOptions = {
-//   origin: 'https://loan-lovat.vercel.app',
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-//   credentials: true
-// };
+// Load service account key file
+// const serviceAccount = require('./serviceAccount.json');
+
+
+// Initialize Firebase Admin SDK with environment variables
+admin.initializeApp({
+  credential: admin.credential.cert(process.env.GOOGLE_APPLICATION_CREDENTIALS),
+  databaseURL: process.env.FIREBASE_DATABASE_URL
+}, 'appName');
 
 app.use(cors({
   origin: 
@@ -53,6 +58,9 @@ app.get('/', (req, res) => {
   res.send('Hello, Render! Your server is up and running.');
 });
 
+app.get('/', (req, res) => {
+  res.send('Firebase Admin SDK initialized!');
+});
 
 const url = "mongodb+srv://maongaenoch:P6QpXaBRe8zHA5gI@cluster0.gqnfqjq.mongodb.net/eswadb";
 

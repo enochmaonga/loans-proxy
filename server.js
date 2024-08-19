@@ -9,8 +9,10 @@ const { MongoClient } = require("mongodb");
 const bodyParser = require('body-parser');
 const path = require('path');
 const admin = require('firebase-admin');
+console.log('Service Account Path:', process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH);
 const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH);
 
+console.log('Service Account JSON:', serviceAccount);
 
 // Load service account key file
 // const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH);

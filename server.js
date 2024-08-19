@@ -9,11 +9,11 @@ const { MongoClient } = require("mongodb");
 const bodyParser = require('body-parser');
 const path = require('path');
 const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccount.json');
+const serviceAccount = require('./serviceAccountKey.json');
 
 
 // Load service account key file
-// const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+// const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH);
 
 
 // Initialize Firebase Admin SDK with environment variables

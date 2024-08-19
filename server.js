@@ -9,9 +9,16 @@ const { MongoClient } = require("mongodb");
 const bodyParser = require('body-parser');
 const path = require('path');
 const admin = require('firebase-admin');
-const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH);
+const fs = require('fs');
 
-// console.log('Service Account JSON:', serviceAccount);
+
+const serviceAccountPath = process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH;
+if (!serviceAccountPath) {
+  throw new Error('FIREBASE_SERVICE_ACCOUNT_KEY_PATH environment variable is not set');
+}
+
+const serviceAccount = JSON.parse(fs.readFileSync(path.resolve(__dirname, serviceAccountPath), 'utf8'));
+
 
 // Load service account key file
 // const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH);

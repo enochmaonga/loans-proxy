@@ -32,9 +32,9 @@ router.post('/submit', upload.single('file'), async (req, res) => {
     });
     const interestDueDate = calculateInterestDueDate(createdAt);
 
-    // Upload file to Cloudinary
-    const result = await cloudinary.uploader.upload_stream(
-      { resource_type: 'auto', folder: 'uploads' }, // Adjust folder based on your structure
+    // Upload file to Cloudinary using stream
+    const uploadStream = cloudinary.uploader.upload_stream(
+      { resource_type: 'auto', folder: 'uploads' }, 
       async (error, result) => {
         if (error) {
           console.error('Error uploading file to Cloudinary', error);
@@ -80,9 +80,8 @@ router.post('/submit', upload.single('file'), async (req, res) => {
     );
 
     // Start the upload by streaming the file buffer
-    const uploadStream = cloudinary.uploader.upload_stream(result);
     uploadStream.end(req.file.buffer);
-    
+
   } catch (error) {
     console.error('Error submitting form', error);
     res.status(500).json({ message: 'Internal server error' });

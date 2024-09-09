@@ -4,6 +4,12 @@ const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
 const { ObjectId } = require('mongodb');
 
+// Function to calculate interest (define this too if necessary)
+const calculateInterest = (loanAmount) => {
+  const interestRate = 0.05; // Example: 5% interest rate
+  return loanAmount * interestRate;
+};
+
 // Configure multer for memory storage
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -73,7 +79,7 @@ router.post('/submit', upload.single('file'), async (req, res) => {
         };
 
         formData.interestAmount = calculateInterest(formData.loanAmount);
-        
+
         console.log('Database connection:', db);
         console.log('Collection:', collection);
 

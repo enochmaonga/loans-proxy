@@ -73,6 +73,9 @@ router.post('/submit', upload.single('file'), async (req, res) => {
         };
 
         formData.interestAmount = calculateInterest(formData.loanAmount);
+        
+        console.log('Database connection:', db);
+        console.log('Collection:', collection);
 
         const dbResult = await collection.insertOne(formData);
         res.status(201).json({ message: 'Form submitted successfully', data: dbResult });
@@ -83,8 +86,8 @@ router.post('/submit', upload.single('file'), async (req, res) => {
     uploadStream.end(req.file.buffer);
 
   } catch (error) {
-    console.error('Error submitting form', error);
-    res.status(500).json({ message: 'Internal server error' });
+    console.error('Error uploading file to Cloudinary:', error);
+    res.status(500).json({ message: 'Error uploading file to Cloudinary', error });
   }
 });
 

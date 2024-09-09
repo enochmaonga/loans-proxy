@@ -8,27 +8,7 @@ const cors = require("cors");
 const { MongoClient } = require("mongodb");
 const bodyParser = require('body-parser');
 const path = require('path');
-const admin = require('firebase-admin');
 const fs = require('fs');
-
-
-const serviceAccountPath = process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH;
-if (!serviceAccountPath) {
-  throw new Error('FIREBASE_SERVICE_ACCOUNT_KEY_PATH environment variable is not set');
-}
-
-const serviceAccount = JSON.parse(fs.readFileSync(path.resolve(__dirname, serviceAccountPath), 'utf8'));
-
-
-// Load service account key file
-// const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH);
-
-
-// Initialize Firebase Admin SDK with environment variables
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: process.env.FIREBASE_DATABASE_URL
-}, 'appName');
 
 app.use(cors({
   origin: 

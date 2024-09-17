@@ -12,7 +12,7 @@ const fs = require('fs');
 
 app.use(cors({
   origin: 
-  'https://eswa.vercel.app/' 
+  'https://loan-lovat.vercel.app' 
   // 'http://localhost:3000'
   ,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

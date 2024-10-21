@@ -17,7 +17,7 @@ mongoose.connect(
 );
 
 router.post("/", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, redirectUrl } = req.body;
   console.log("Login", req.body);
   console.log("Retrieved User:", User);
   console.log(process.env.ACCESS_TOKEN_SECRET);
@@ -43,19 +43,24 @@ router.post("/", async (req, res) => {
     if (passwordMatch) {
       // Generate a JWT token and send it back to the client
       const token = jwt.sign(
-        { username: user.username, userType: user.userType },
+        { username: user.username, userType: user.userType, redirectUrl },
         process.env.ACCESS_TOKEN_SECRET,
         {
           expiresIn: "1h",
         }
       );
-      console.log("Generated Token:", token);
+      console.log("Generated Login Token:", token);
 
       // Log the user login response
-      console.log("User login successful:", { username: user.username, token });
-      console.log("Generated Token:", token);
+      // console.log("User login successful:", { username: user.username, token });
+      // console.log("Generated Token:", token);
 
-      res.json({ token, username: user.username, userId: user._id });
+      res.json({
+        token,
+        username: user.username,
+        userId: user._id,
+        redirectUrl,
+      });
     } else {
       res.status(401).json({ message: "Invalid username or password" });
     }

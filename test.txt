@@ -1,6 +1,12 @@
 # GET request to retrieve users
 GET http://localhost:4001/users
 
+# GET request to retrieve users
+GET http://localhost:4001/applications
+
+# GET request to retrieve users
+GET http://localhost:4001/upload/documents/tq7wssdrt2wtro6po7bhg
+
 # POST request to create a new loan
 POST http://localhost:4001/newloan
 Content-Type: application/json
